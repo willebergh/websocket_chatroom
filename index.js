@@ -1,9 +1,18 @@
-const express = require("express");
-const app = express();
+const app = require('express')();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
-app.use(require("./routes"))
 
-const PORT = 3000 | process.env.PORT;
-app.listen(PORT, () => {
-    console.log(`server started on port: ${PORT}.`)
+
+io.on("connection", client => {
+    client.on("sendMessage", message => {
+        io.emit("newMessage", message)
+    })
+
+
 })
+
+
+
+const PORT = 5000 | process.env.PORT;
+server.listen(PORT);

@@ -1,0 +1,12 @@
+#input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 5vh;
+}
+
+#chat {
+    position: fixed;
+    top: 0;
+    height: 95vh;
+}
